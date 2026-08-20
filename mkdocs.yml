@@ -1,0 +1,280 @@
+site_name: Rayls Documentation
+site_url: https://docs.rayls.io
+site_description: Privacy-preserving cross-chain infrastructure for financial institutions
+site_author: Parfin
+
+theme:
+  name: material
+  language: en
+  palette:
+    # Light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    # Dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  font:
+    text: Roboto
+    code: Roboto Mono
+  features:
+    - navigation.instant
+    - navigation.tracking
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.sections
+    - navigation.top
+    - navigation.footer
+    - search.suggest
+    - search.highlight
+    - search.share
+    - content.code.copy
+    - content.code.annotate
+    - content.tabs.link
+    - toc.follow
+  icon:
+    repo: fontawesome/brands/github
+
+plugins:
+  - search:
+      lang: en
+      separator: '[\s\-,:!=\[\]()"/]+|(?!\b)(?=[A-Z][a-z])|\.(?!\d)|&[lg]t;'
+  - git-revision-date-localized:
+      enable_creation_date: true
+      type: timeago
+      fallback_to_build_date: true
+  - minify:
+      minify_html: true
+  - panzoom:
+      key: "none"
+      full_screen: true
+      always_show_hint: false
+      hint_location: top
+
+markdown_extensions:
+  # Python Markdown
+  - abbr
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - md_in_html
+  - toc:
+      permalink: true
+      toc_depth: 3
+
+  # Python Markdown Extensions
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.snippets
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
+
+extra:
+  version:
+    provider: mike
+    default: latest
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/parfin
+
+extra_css:
+  - stylesheets/extra.css
+
+nav:
+  - Home: index.md
+
+  - Learn:
+      - Overview: learn/index.md
+
+      - Introduction:
+          - Overview: learn/introduction/index.md
+          - What is Rayls?: learn/introduction/what-is-rayls.md
+          - Key Features: learn/introduction/key-features.md
+          - How It Works: learn/introduction/how-it-works.md
+
+      - Components:
+          - Overview: learn/components/index.md
+          - Architecture:
+              - Transaction Lifecycle: learn/components/architecture/transaction-lifecycle.md
+              - Privacy Node Components: learn/components/architecture/privacy-node-components.md
+              - Private Network Hub Components: learn/components/architecture/hub-components.md
+              - Enygma Batching: learn/components/architecture/enygma.md
+          - Privacy Nodes:
+              - Overview: learn/components/privacy-nodes/index.md
+              - Blockchain Client: learn/components/privacy-nodes/blockchain-client.md
+              - Consensus: learn/components/privacy-nodes/consensus.md
+              - Configuration: learn/components/privacy-nodes/configuration.md
+          - Private Network Hub:
+              - Overview: learn/components/private-network-hub/index.md
+              - Blockchain Client: learn/components/private-network-hub/blockchain-client.md
+              - Coordination: learn/components/private-network-hub/coordination.md
+          - Smart Contracts:
+              - Overview: learn/components/smart-contracts/index.md
+              - Architecture: learn/components/smart-contracts/architecture.md
+              - Privacy Node Contracts: learn/components/smart-contracts/privacy-node-contracts.md
+              - PN Token Registry: learn/components/smart-contracts/pn-token-registry.md
+              - Private Network Hub Contracts: learn/components/smart-contracts/hub-contracts.md
+              - Public Chain Contracts: learn/components/smart-contracts/public-chain-contracts.md
+              - Governance: learn/components/smart-contracts/governance.md
+          - Relayer:
+              - Overview: learn/components/relayer/index.md
+              - Relayer: learn/components/relayer/relayer.md
+              - Public Relayer: learn/components/relayer/public-relayer.md
+              - Atomic Service: learn/components/relayer/atomic-service.md
+          - Key Operation System:
+              - Overview: learn/components/kos/index.md
+              - Key Management: learn/components/kos/key-management.md
+              - Encryption: learn/components/kos/encryption.md
+              - KMS Integration: learn/components/kos/kms-integration.md
+          - Gnark API:
+              - Overview: learn/components/gnark-api/index.md
+              - Circuits: learn/components/gnark-api/circuits.md
+              - Proving Keys: learn/components/gnark-api/proving-keys.md
+          - Public Chain (Optional):
+              - Overview: learn/components/public-chain/index.md
+              - Bridge Architecture: learn/components/public-chain/architecture.md
+              - Token Bridging: learn/components/public-chain/token-bridging.md
+          - Backend (Optional):
+              - Overview: learn/components/backend/index.md
+              - Transaction Construction: learn/components/backend/transaction-construction.md
+              - Custody Integration: learn/components/backend/custody-integration.md
+
+      - Governance:
+          - Overview: learn/governance/index.md
+          - Participants: learn/governance/participants.md
+          - Tokens: learn/governance/tokens.md
+          - Authorization:
+              - Overview: learn/governance/authorization/index.md
+              - Access Manager: learn/governance/authorization/access-manager.md
+              - Roles and Permissions: learn/governance/authorization/roles-and-permissions.md
+              - Authorization Flows: learn/governance/authorization/authorization-flows.md
+              - Security Model: learn/governance/authorization/security-model.md
+          - Governance Services:
+              - Overview: learn/governance/governance-services.md
+              - Listener Service: learn/governance/listener-service.md
+              - Decryption: learn/governance/decryption.md
+              - Flagger Service: learn/governance/flagger-service.md
+              - API Service: learn/governance/api-service.md
+              - CI/CD Pipeline: learn/governance/cicd-pipeline.md
+
+      - Protocols:
+          - Teleport Atomic:
+              - Overview: learn/protocols/teleport-atomic/overview.md
+              - Cross-Chain Messaging: learn/protocols/teleport-atomic/crosschain-messaging.md
+              - Token Transfers: learn/protocols/teleport-atomic/token-transfers.md
+              - Batch Processing: learn/protocols/teleport-atomic/batch-processing.md
+              - Atomic Reverts: learn/protocols/teleport-atomic/atomic-reverts.md
+          - Enygma:
+              - Overview: learn/protocols/enygma/index.md
+              - Problem and Solution: learn/protocols/enygma/problem-and-solution.md
+              - Cryptographic Foundations: learn/protocols/enygma/cryptographic-foundations.md
+              - Architecture: learn/protocols/enygma/architecture.md
+              - The Proof System: learn/protocols/enygma/the-proof-system.md
+              - Cross-Chain Transfers: learn/protocols/enygma/cross-chain-transfers.md
+              - State Management: learn/protocols/enygma/state-management.md
+              - Glossary: learn/protocols/enygma/glossary.md
+          - DVP:
+              - Overview: learn/protocols/dvp/index.md
+              - Problem and Solution: learn/protocols/dvp/problem-and-solution.md
+              - UTXO and Commitments: learn/protocols/dvp/utxo-and-commitments.md
+              - Architecture: learn/protocols/dvp/architecture.md
+              - The Atomic Swap: learn/protocols/dvp/the-atomic-swap.md
+              - Merkle State: learn/protocols/dvp/merkle-state.md
+              - Enygma Integration: learn/protocols/dvp/enygma-integration.md
+              - Governance Integration: learn/protocols/dvp/governance-integration.md
+              - Swap Cancellation: learn/protocols/dvp/swap-cancellation.md
+              - Glossary: learn/protocols/dvp/glossary.md
+
+  - Build:
+      - Overview: build/index.md
+      - Beginner:
+          - Prerequisites: build/beginner/prerequisites.md
+          - Architecture Overview: build/beginner/architecture-overview.md
+          - Docker Setup: build/beginner/docker-setup.md
+          - Account Setup: build/beginner/account-setup.md
+          - First Transaction: build/beginner/first-transaction.md
+      - Intermediate:
+          - Overview: build/intermediate/overview.md
+          - Getting Started:
+              - Token Standards: build/intermediate/token-standards.md
+              - Building Custom Tokens: build/intermediate/building-custom-tokens.md
+              - Deployment Workflow: build/intermediate/deployment-workflow.md
+          - Understanding the System:
+              - Transaction Lifecycle: build/intermediate/transaction-lifecycle.md
+              - Endpoint Integration: build/intermediate/endpoint-integration.md
+          - Production Ready:
+              - Security: build/intermediate/security.md
+              - Testing: build/intermediate/testing.md
+          - Advanced:
+              - End-to-End Tutorial: build/intermediate/end-to-end-tutorial.md
+              - EIP-5164 Explained: build/intermediate/eip-5164-explained.md
+              - Troubleshooting: build/intermediate/troubleshooting.md
+          - Reference:
+              - Code Examples: build/intermediate/code-examples.md
+              - API Reference: build/intermediate/api-reference.md
+      - Advanced:
+          - Enygma Privacy: build/advanced/enygma-privacy.md
+          - DVP Atomic Swaps: build/advanced/dvp-atomic-swaps.md
+          - Public Chain Bridge: build/advanced/public-chain-bridge.md
+          - Authorization Integration: build/advanced/authorization-integration.md
+          - Fault Injection: build/advanced/fault-injection.md
+      - Reference:
+          - Developer Tools: build/reference/developer-tools.md
+          - Testing Guide: build/reference/testing-guide.md
+          - Migration Guide: build/reference/migration-guide.md
+          - Role Reference: build/reference/role-reference.md
+          - Best Practices: build/reference/best-practices.md
+
+  - Deploy:
+      - Overview: deploy/index.md
+      - Full Network:
+          - Overview: deploy/network/index.md
+          - Prerequisites & Bring-up: deploy/network/prerequisites.md
+          - Smart-Contract Deployment: deploy/network/smart-contracts.md
+          - Configuration: deploy/network/configuration.md
+          - Security: deploy/network/security.md
+          - Verification & Troubleshooting: deploy/network/verification.md
+      - Privacy Node:
+          - Overview: deploy/privacy-node/index.md
+          - Local Development: deploy/privacy-node/local.md
+          - VPS Deployment: deploy/privacy-node/vps.md
+          - Kubernetes: deploy/privacy-node/kubernetes.md
+          - Configuration: deploy/privacy-node/configuration.md
+          - Monitoring: deploy/privacy-node/monitoring.md
+          - Troubleshooting: deploy/privacy-node/troubleshooting.md
+          - Authorization Operations: deploy/privacy-node/authorization-operations.md
+          - AccessManager Audit: deploy/privacy-node/access-manager-audit.md
+
+  - Resources:
+      - Glossary: resources/glossary.md
